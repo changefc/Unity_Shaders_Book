@@ -60,7 +60,6 @@ Shader "Unity Shaders Book/Chapter 7/Ramp Texture" {
 				// Use the texture to sample the diffuse color
 				fixed halfLambert  = 0.5 * dot(worldNormal, worldLightDir) + 0.5;
 				fixed3 diffuseColor = tex2D(_RampTex, fixed2(halfLambert, halfLambert)).rgb * _Color.rgb;
-				
 				fixed3 diffuse = _LightColor0.rgb * diffuseColor;
 				
 				fixed3 viewDir = normalize(UnityWorldSpaceViewDir(i.worldPos));

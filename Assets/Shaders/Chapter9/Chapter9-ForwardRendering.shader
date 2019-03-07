@@ -114,7 +114,7 @@ Shader "Unity Shaders Book/Chapter 9/Forward Rendering" {
 				return o;
 			}
 			
-			fixed4 frag(v2f i) : SV_Target {
+			fixed4 frag(v2f i) : SV_Target {   
 				fixed3 worldNormal = normalize(i.worldNormal);
 				#ifdef USING_DIRECTIONAL_LIGHT
 					fixed3 worldLightDir = normalize(_WorldSpaceLightPos0.xyz);
@@ -136,7 +136,8 @@ Shader "Unity Shaders Book/Chapter 9/Forward Rendering" {
 				        fixed atten = tex2D(_LightTexture0, dot(lightCoord, lightCoord).rr).UNITY_ATTEN_CHANNEL;
 				    #elif defined (SPOT)
 				        float4 lightCoord = mul(unity_WorldToLight, float4(i.worldPos, 1));
-				        fixed atten = (lightCoord.z > 0) * tex2D(_LightTexture0, lightCoord.xy / lightCoord.w + 0.5).w * tex2D(_LightTextureB0, dot(lightCoord, lightCoord).rr).UNITY_ATTEN_CHANNEL;
+				        fixed atten = (lightCoord.z > 0) * tex2D(_LightTexture0, lightCoord.xy / lightCoord.w + 0.5).w 
+						* tex2D(_LightTextureB0, dot(lightCoord, lightCoord).rr).UNITY_ATTEN_CHANNEL;
 				    #else
 				        fixed atten = 1.0;
 				    #endif

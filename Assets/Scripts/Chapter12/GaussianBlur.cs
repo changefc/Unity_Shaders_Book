@@ -23,43 +23,6 @@ public class GaussianBlur : PostEffectsBase {
 	
 	[Range(1, 8)]
 	public int downSample = 2;
-	
-	/// 1st edition: just apply blur
-//	void OnRenderImage(RenderTexture src, RenderTexture dest) {
-//		if (material != null) {
-//			int rtW = src.width;
-//			int rtH = src.height;
-//			RenderTexture buffer = RenderTexture.GetTemporary(rtW, rtH, 0);
-//
-//			// Render the vertical pass
-//			Graphics.Blit(src, buffer, material, 0);
-//			// Render the horizontal pass
-//			Graphics.Blit(buffer, dest, material, 1);
-//
-//			RenderTexture.ReleaseTemporary(buffer);
-//		} else {
-//			Graphics.Blit(src, dest);
-//		}
-//	} 
-
-	/// 2nd edition: scale the render texture
-//	void OnRenderImage (RenderTexture src, RenderTexture dest) {
-//		if (material != null) {
-//			int rtW = src.width/downSample;
-//			int rtH = src.height/downSample;
-//			RenderTexture buffer = RenderTexture.GetTemporary(rtW, rtH, 0);
-//			buffer.filterMode = FilterMode.Bilinear;
-//
-//			// Render the vertical pass
-//			Graphics.Blit(src, buffer, material, 0);
-//			// Render the horizontal pass
-//			Graphics.Blit(buffer, dest, material, 1);
-//
-//			RenderTexture.ReleaseTemporary(buffer);
-//		} else {
-//			Graphics.Blit(src, dest);
-//		}
-//	}
 
 	/// 3rd edition: use iterations for larger blur
 	void OnRenderImage (RenderTexture src, RenderTexture dest) {

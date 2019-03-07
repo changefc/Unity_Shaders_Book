@@ -53,12 +53,12 @@ Shader "Unity Shaders Book/Chapter 12/Edge Detection" {
 			}
 			
 			half Sobel(v2f i) {
-				const half Gx[9] = {-1,  0,  1,
-										-2,  0,  2,
-										-1,  0,  1};
-				const half Gy[9] = {-1, -2, -1,
+				const half Gx[9] = {-0.1,  0,  0.1,
+										-0.2,  0,  0.2,
+										-0.1,  0,  0.1};
+				const half Gy[9] = {-0.1, -0.2, -0.1,
 										0,  0,  0,
-										1,  2,  1};		
+										0.1,  0.2,  0.1};		
 				
 				half texColor;
 				half edgeX = 0;

@@ -48,8 +48,7 @@ Shader "Unity Shaders Book/Chapter 7/Single Texture" {
 				
 				o.uv = v.texcoord.xy * _MainTex_ST.xy + _MainTex_ST.zw;
 				// Or just call the built-in function
-//				o.uv = TRANSFORM_TEX(v.texcoord, _MainTex);
-				
+				//o.uv = TRANSFORM_TEX(v.texcoord, _MainTex);
 				return o;
 			}
 			
@@ -60,7 +59,7 @@ Shader "Unity Shaders Book/Chapter 7/Single Texture" {
 				// Use the texture to sample the diffuse color
 				fixed3 albedo = tex2D(_MainTex, i.uv).rgb * _Color.rgb;
 				
-				fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz * albedo;
+				fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz* albedo;
 				
 				fixed3 diffuse = _LightColor0.rgb * albedo * max(0, dot(worldNormal, worldLightDir));
 				

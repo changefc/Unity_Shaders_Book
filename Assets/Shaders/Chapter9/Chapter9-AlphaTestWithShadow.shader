@@ -41,7 +41,7 @@ Shader "Unity Shaders Book/Chapter 9/Alpha Test With Shadow" {
 				float3 worldNormal : TEXCOORD0;
 				float3 worldPos : TEXCOORD1;
 				float2 uv : TEXCOORD2;
-				SHADOW_COORDS(3)
+				//SHADOW_COORDS(3)
 			};
 			
 			v2f vert(a2v v) {
@@ -55,7 +55,7 @@ Shader "Unity Shaders Book/Chapter 9/Alpha Test With Shadow" {
 			 	o.uv = TRANSFORM_TEX(v.texcoord, _MainTex);
 			 	
 			 	// Pass shadow coordinates to pixel shader
-			 	TRANSFER_SHADOW(o);
+			 	//TRANSFER_SHADOW(o);
 			 	
 			 	return o;
 			}
@@ -75,9 +75,9 @@ Shader "Unity Shaders Book/Chapter 9/Alpha Test With Shadow" {
 				fixed3 diffuse = _LightColor0.rgb * albedo * max(0, dot(worldNormal, worldLightDir));
 							 	
 			 	// UNITY_LIGHT_ATTENUATION not only compute attenuation, but also shadow infos
-				UNITY_LIGHT_ATTENUATION(atten, i, i.worldPos);
+				//UNITY_LIGHT_ATTENUATION(atten, i, i.worldPos);
 			 	
-				return fixed4(ambient + diffuse * atten, 1.0);
+				return fixed4(ambient + diffuse, 1.0);
 			}
 			
 			ENDCG

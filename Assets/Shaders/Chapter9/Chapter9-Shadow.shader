@@ -40,7 +40,7 @@ Shader "Unity Shaders Book/Chapter 9/Shadow" {
 				float4 pos : SV_POSITION;
 				float3 worldNormal : TEXCOORD0;
 				float3 worldPos : TEXCOORD1;
-				SHADOW_COORDS(2)
+				//SHADOW_COORDS(2)
 			};
 			
 			v2f vert(a2v v) {
@@ -52,7 +52,7 @@ Shader "Unity Shaders Book/Chapter 9/Shadow" {
 			 	o.worldPos = mul(unity_ObjectToWorld, v.vertex).xyz;
 			 	
 			 	// Pass shadow coordinates to pixel shader
-			 	TRANSFER_SHADOW(o);
+			 	//TRANSFER_SHADOW(o);
 			 	
 			 	return o;
 			}
@@ -71,9 +71,9 @@ Shader "Unity Shaders Book/Chapter 9/Shadow" {
 
 				fixed atten = 1.0;
 				
-				fixed shadow = SHADOW_ATTENUATION(i);
+				//fixed shadow = SHADOW_ATTENUATION(i);
 				
-				return fixed4(ambient + (diffuse + specular) * atten * shadow, 1.0);
+				return fixed4(ambient + (diffuse + specular) * atten , 1.0);
 			}
 			
 			ENDCG

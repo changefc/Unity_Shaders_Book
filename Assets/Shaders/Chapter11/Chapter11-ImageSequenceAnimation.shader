@@ -53,9 +53,10 @@ Shader "Unity Shaders Book/Chapter 11/Image Sequence Animation" {
 				float row = floor(time / _HorizontalAmount);
 				float column = time - row * _HorizontalAmount;
 				
-//				half2 uv = float2(i.uv.x /_HorizontalAmount, i.uv.y / _VerticalAmount);
-//				uv.x += column / _HorizontalAmount;
-//				uv.y -= row / _VerticalAmount;
+				//half2 uv = float2(i.uv.x /_HorizontalAmount, i.uv.y / _VerticalAmount);
+				//uv.x += column / _HorizontalAmount;
+				//uv.y -= row / _VerticalAmount;
+
 				half2 uv = i.uv + half2(column, -row);
 				uv.x /=  _HorizontalAmount;
 				uv.y /= _VerticalAmount;
@@ -63,6 +64,9 @@ Shader "Unity Shaders Book/Chapter 11/Image Sequence Animation" {
 				fixed4 c = tex2D(_MainTex, uv);
 				c.rgb *= _Color;
 				
+				//fixed4 c = tex2D(_MainTex,i.uv);
+				//c.rgb *= _Color;
+
 				return c;
 			}
 			

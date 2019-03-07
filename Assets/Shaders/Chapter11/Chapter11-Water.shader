@@ -54,7 +54,7 @@ Shader "Unity Shaders Book/Chapter 11/Water" {
 				
 				o.uv = TRANSFORM_TEX(v.texcoord, _MainTex);
 				o.uv +=  float2(0.0, _Time.y * _Speed);
-				
+
 				return o;
 			}
 			
