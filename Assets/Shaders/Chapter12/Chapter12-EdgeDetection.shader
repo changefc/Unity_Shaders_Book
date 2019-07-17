@@ -71,7 +71,7 @@ Shader "Unity Shaders Book/Chapter 12/Edge Detection" {
 				
 				half edge = 1 - abs(edgeX) - abs(edgeY);
 				
-				return edge;
+				return 0;
 			}
 			
 			fixed4 fragSobel(v2f i) : SV_Target {
